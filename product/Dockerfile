@@ -25,5 +25,8 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 WORKDIR /app
 
+# 命令别名
+RUN echo 'alias "ll=ls -alh"' >> /root/.bashrc
+
 # 暴露工作端口
 EXPOSE 80
