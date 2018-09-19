@@ -2,7 +2,6 @@ FROM php:7.2-apache
 
 # 安装扩展
 RUN docker-php-ext-install pdo_mysql mysqli
-
 RUN pecl install -o -f redis && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 
 # URL重写
