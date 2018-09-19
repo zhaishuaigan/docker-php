@@ -5,6 +5,9 @@ RUN docker-php-ext-install pdo_mysql mysqli
 RUN pecl install -o -f redis && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 RUN pecl install -o -f xdebug && echo "extension=xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini
 
+# 安装Git和Vim
+RUN apt update && apt install -y git vim
+
 # URL重写
 RUN a2enmod rewrite
 
