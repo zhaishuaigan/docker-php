@@ -3,6 +3,7 @@ FROM php:7.2-apache
 # 安装扩展
 RUN docker-php-ext-install pdo_mysql mysqli
 RUN pecl install -o -f redis && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
+RUN pecl install -o -f memcache && echo "extension=memcache.so" > /usr/local/etc/php/conf.d/memcache.ini
 
 # 安装Git和Vim
 RUN apt update && apt install -y git vim
