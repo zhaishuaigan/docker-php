@@ -14,12 +14,9 @@ RUN docker-php-ext-install pdo_mysql mysqli \
 	&& docker-php-ext-enable redis \
 	&& a2enmod rewrite
 
-
-
 # 安装composer
 ADD https://getcomposer.org/composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer && composer config -g repo.packagist composer https://packagist.laravel-china.org
-
 
 # 修改网站主目录
 ENV APACHE_DOCUMENT_ROOT /app

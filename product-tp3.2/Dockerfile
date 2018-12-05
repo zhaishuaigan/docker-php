@@ -11,8 +11,7 @@ RUN apt install -y \
 # 安装扩展
 RUN docker-php-ext-install pdo_mysql mysqli \
     && pecl install redis \
-	&& pecl install  xdebug \
-	&& docker-php-ext-enable redis xdebug \
+	&& docker-php-ext-enable redis \
 	&& a2enmod rewrite
 
 # 安装composer
