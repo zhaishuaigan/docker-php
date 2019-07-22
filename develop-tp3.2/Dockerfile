@@ -16,7 +16,7 @@ RUN docker-php-ext-install pdo_mysql mysqli \
 
 # 安装composer
 ADD https://getcomposer.org/composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer && composer config -g repo.packagist composer https://packagist.laravel-china.org
+RUN chmod 755 /usr/local/bin/composer && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # 修改网站主目录
 ENV APACHE_DOCUMENT_ROOT /app
