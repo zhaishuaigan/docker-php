@@ -1,13 +1,13 @@
-FROM php:7.1-apache
+FROM php:apache
 
 # 安装 Git Vim php-gd
 RUN apt update
 RUN apt install -y \
     git vim libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
-    && docker-php-ext-install -j$(nproc) iconv \
+    && docker-php-ext-install  iconv \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd zip
-
+    && docker-php-ext-install gd zip
+    
 # 安装扩展
 RUN docker-php-ext-install pdo_mysql mysqli \
     && pecl install redis \
@@ -29,7 +29,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 
 # 安装代码
 #COPY ./wwwroot /app/
-RUN mkdir -p /app/public && chmod -R 777 /app && echo '<? phpinfo();' > /app/public/index.php
+RUN mkdir /app && chmod -R 777 /app && echo '<? phpinfo();' > /app/index.php
 
 # 命令别名
 RUN echo 'alias "ll=ls -alh"' >> /root/.bashrc
