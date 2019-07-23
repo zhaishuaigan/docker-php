@@ -29,7 +29,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 
 # 安装代码
 #COPY ./wwwroot /app/
-RUN mkdir /app && chmod -R 777 /app && echo '<? phpinfo();' > /app/index.php
+RUN mkdir /app && mkdir /app/public && chmod -R 777 /app && echo '<? phpinfo();' > /app/public/index.php
 
 # 命令别名
 RUN echo 'alias "ll=ls -alh"' >> /root/.bashrc
