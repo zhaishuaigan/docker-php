@@ -2,7 +2,7 @@ FROM php:5.6-apache
 
 # 安装 Git Vim
 RUN apt update \
-    && apt install -y git vim libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+    && apt install -y zip unzip git vim libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
 	&& apt clean
 
 # 安装扩展

@@ -8,22 +8,18 @@
 docker run -d -p 80:80 -v /path/to/wwwroot:/app zhaishuaigan/php
 ```
 
-开发环境可以使用, 里面安装了xdebug:
-```
-docker run -d -p 80:80 -v /path/to/wwwroot:/app zhaishuaigan/php:dev
-```
+## 所有版本:
+zhaishuaigan/php
+zhaishuaigan/php:tp3.2
+zhaishuaigan/php:tp5
+zhaishuaigan/php:tp6
+
 
 如果你使用的是ThinkPHP 5.x版本的框架, 可以使用:
-
 ```
-// 部署环境
 docker run -d -p 80:80 -v /path/to/wwwroot:/app zhaishuaigan/php:tp5
-
-// 开发环境
-docker run -d -p 80:80 -v /path/to/wwwroot:/app zhaishuaigan/php:tp5-dev
 ```
 或继承此环境, 安装其他插件:
-
 ```
 # Dockerfile
 
