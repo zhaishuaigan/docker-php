@@ -6,7 +6,7 @@ RUN apt update \
 	&& apt clean
 
 # 安装扩展
-RUN docker-php-ext-install pdo_mysql mysqli \
+RUN docker-php-ext-install pdo_mysql mysqli mysql \
     && pecl install http://pecl.php.net/get/redis-4.3.0.tgz \
 	&& pecl install https://pecl.php.net/get/xdebug-2.5.5.tgz \
 	&& docker-php-ext-enable redis xdebug \
