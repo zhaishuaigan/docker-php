@@ -23,7 +23,8 @@ RUN chmod 755 /usr/local/bin/composer && composer config -g repo.packagist compo
 # 修改网站主目录
 ENV APACHE_DOCUMENT_ROOT /app/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
-	&& sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+	&& sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+	&& echo 'ServerName localhost' >> /etc/apache2/apache2.conf
 
 # 安装代码
 #COPY ./wwwroot /app/
